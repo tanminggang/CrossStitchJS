@@ -6,14 +6,21 @@ function getMousePos(canvas, evt) {
     };
 }
 
-function posToPoint(pos){
+function posToCross(pos){
 	var x = (pos.x - pos.x % stitchwidth)/stitchwidth;
 	var y = (pos.y - pos.y % stitchwidth)/stitchwidth;
-	return new paper.Point(x, y);
+	return new Cross(x, y, currentColor);
 }
 
-function setPoint(point){
-	console.log("set cross: "+point);
-	crosses.push({point: point, color: currentColor});
-	drawCross(point, currentColor);
+function setCross(cross){
+	console.log("set "+cross.getInfo());
+	crosses.push(cross);
+	cross.draw();
+}
+
+function drawCrosses(){
+  for (var i = 0; i < crosses.length; i++) {
+    crosses[i].draw();
+  }
+  console.log("stichDiff " +stichDiff);
 }
