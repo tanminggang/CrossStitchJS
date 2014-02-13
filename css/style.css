@@ -3,3 +3,16 @@
 	background-repeat: repeat;
 	background-color: #EEEEEE;
 }
+
+#saveButton {
+  cursor:pointer;
+  padding: 10px;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  background-color: #757679;
+  -moz-border-radius:10px;
+  -khtml-border-radius:10px;
+  -webkit-border-radius: 10px;
+  border-radius:10px;
+}

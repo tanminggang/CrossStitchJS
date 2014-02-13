@@ -39,3 +39,19 @@ $(window).bind("resize", function(){
     context.lineWidth = 3;
     drawCrosses();
 });
+
+$("#saveButton").click(function() {
+	console.log("klick");
+	$(this).css("background-color","#008800");
+  // var myImage = canvas.toDataURL();
+  // //document.getElementById('canvasImg').src = dataURL;
+  // var imageElement = document.getElementById("stipat");
+  // imageElement.src = myImage;
+
+  canvas.toBlob(function(blob) {
+	    saveAs(blob, "pretty image.png");
+	});
+});
+
+
+
