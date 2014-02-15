@@ -4,11 +4,12 @@ var context = canvas.getContext('2d');
 canvas.width = document.body.clientWidth;
 canvas.height = document.body.clientHeight;
 
-context.lineWidth = 3;
+var stitchwidth = 10;
+var stichDiff = stitchwidth/7;
+context.lineWidth = stitchwidth/4;
+
 context.lineCap = 'round';
 
-var stitchwidth = 20;
-var stichDiff = 2;
 var currentColor = "#ff0000";
 var drawing = false;
 var lastCross;
@@ -50,3 +51,7 @@ var crosses = [
   new Cross(3, 5, "red"),
   new Cross(16, 5, "blue")
 ];
+
+$("#sizeSlider").prepend("<p>cross size: "+stitchwidth+" px</p>");
+$(".sliderBall").css("margin-left", stitchwidth+"px");
+$(".slider").slider();

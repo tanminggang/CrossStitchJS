@@ -69,7 +69,7 @@ $("#saveButton").click(function() {
   // imageElement.src = myImage;
 
   canvas.toBlob(function(blob) {
-	    saveAs(blob, "pretty image.png");
+    saveAs(blob, "pretty image.png");
 	});
 });
 

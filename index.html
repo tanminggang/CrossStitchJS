@@ -4,11 +4,18 @@
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/style.css">
 	<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-  <div id="saveButton">save as image</div>
 	<canvas id="stipat" resize></canvas>
+  <div id="controls">
+    <div id="saveButton" class="control">save image</div>
+    <div id="sizeSlider" class="control">
+      <div class="slider"></div>
+      <div class="sliderBall"></div>
+    </div>
+  </div>
 </body>
 
 <script type="text/javascript" src="js/canvas-toBlob.js"></script>

@@ -2,17 +2,57 @@
 	background-image: url('../bg.png');
 	background-repeat: repeat;
 	background-color: #EEEEEE;
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 
-#saveButton {
-  cursor:pointer;
-  padding: 10px;
-  position: absolute;
-  left: 20px;
-  top: 20px;
-  background-color: #757679;
+#controls {
+  position: relative;
+  z-index: 1;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 14px;
+}
+
+.control {
+  float: left;
+  padding: 6px;
+  margin: 5px;
   -moz-border-radius:10px;
   -khtml-border-radius:10px;
   -webkit-border-radius: 10px;
   border-radius:10px;
+  box-shadow: 2px 2px 5px #666;
+}
+
+#saveButton {
+  cursor: pointer;
+  background-color: #DDDDDD;
+  border: 1px solid #FFF;
+}
+
+#saveButton:hover {
+  background-color: #EEE;
+}
+
+#sizeSlider {
+  background-color: #fff;
+}
+
+.slider {
+  width: 160px;
+  height: 4px;
+  margin-top: 10px;
+  background-color: #876880;
+}
+
+.sliderBall {
+  width: 12px;
+  height: 12px;
+  -moz-border-radius:5px;
+  -khtml-border-radius:5px;
+  -webkit-border-radius: 5px;
+  border-radius:5px;
+  background-color: #000;
+  margin: -8px 0 5px 0;
 }
