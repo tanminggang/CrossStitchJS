@@ -56,7 +56,9 @@ window.onload = function() {
 $(window).bind("resize", function(){
     canvas.width = $(window).width();
     canvas.height = $(window).height();
-    context.lineWidth = 3;
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.lineWidth = stitchwidth/4;
+    context.lineCap = 'round';
     drawCrosses();
 });
 
