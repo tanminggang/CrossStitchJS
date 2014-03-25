@@ -1,7 +1,7 @@
 #stipat {
-	background-image: url('../bg.png');
-	background-repeat: repeat;
-	background-color: #EEEEEE;
+  background-image: url('../bg.png');
+  background-repeat: repeat;
+  background-color: #EEEEEE;
   position: fixed;
   left: 0;
   top: 0;
@@ -25,13 +25,13 @@
   box-shadow: 2px 2px 5px #666;
 }
 
-#saveButton {
+.button {
   cursor: pointer;
   background-color: #DDDDDD;
   border: 1px solid #FFF;
 }
 
-#saveButton:hover {
+.button:hover {
   background-color: #EEE;
 }
 

@@ -54,4 +54,4 @@ var crosses = [
 
 $("#sizeSlider").prepend("<p>cross size: "+stitchwidth+" px</p>");
 $(".sliderBall").css("margin-left", stitchwidth+"px");
-$(".slider").slider();
+//$(".slider").slider();
