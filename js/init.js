@@ -1,6 +1,8 @@
 var canvas = document.getElementById('stipat');
 var context = canvas.getContext('2d');
 
+var crosses = [];
+
 canvas.width = document.body.clientWidth;
 canvas.height = document.body.clientHeight;
 
@@ -47,11 +49,6 @@ Cross.prototype.getInfo = function(){
   return "cross: " + this.x +"/" + this.y + "/" + this.color;
 };
 
-var crosses = [
-  new Cross(3, 5, "red"),
-  new Cross(16, 5, "blue")
-];
-
-$("#sizeSlider").prepend("<p>cross size: "+stitchwidth+" px</p>");
+$(".sliderText").html("cross size: "+stitchwidth+" px");
 $(".sliderBall").css("margin-left", stitchwidth+"px");
 //$(".slider").slider();

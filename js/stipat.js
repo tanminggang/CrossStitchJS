@@ -28,9 +28,9 @@ window.onload = function () {
   // -----------------EventListener
   canvas.addEventListener('mousemove', function (evt) {
     event.preventDefault();
-    console.log("move");
+    //console.log("move");
     if (drawing) {
-      console.log("draw");
+      //console.log("draw");
       var currentCross = posToCross(getMousePos(canvas, evt));
       if (!lastCross.equals(currentCross)) {
         lastCross = currentCross;
@@ -40,37 +40,47 @@ window.onload = function () {
   }, false);
 
   canvas.addEventListener('mousedown', function (evt) {
-    console.log("down");
+    //console.log("down");
     drawing = true;
-    console.log("mouse= " + getMousePos(canvas, evt).x + "/" + getMousePos(canvas, evt).y);
+    //console.log("mouse= " + getMousePos(canvas, evt).x + "/" + getMousePos(canvas, evt).y);
     lastCross = posToCross(getMousePos(canvas, evt));
     setCross(lastCross);
   }, false);
 
   canvas.addEventListener('mouseup', function (evt) {
-    console.log("up");
+    //console.log("up");
     drawing = false;
   }, false);
 
   // -----------------Slider
-  var sliderDragging = false;
+  var sliderDragging = false, sliding = false, delta;
 
   $('.sliderBall').mousedown(function () {
     console.log('slider click');
-    $(window).mousemove(function () {
-      sliderDragging = true;
-      $(window).unbind("mousemove");
-      stitchwidth++;
+    sliding = true;
+  });
+  $('#sizeSlider').mousemove(function (evt){
+    if (sliding){
+      console.log("sliding");
+      //var set_perc = ((((event.clientX - bar.offsetLeft) / bar.offsetWidth)).toFixed(2));
+      //$("elementA").offset().top - $("elementB").offset().top;
+      //console.log("client: " + evt.clientX);
+      delta = evt.clientX - 6 - $('#sizeSlider').offset().left;
+      stitchwidth = (delta < 148) ? delta : 148;
+      if (stitchwidth < 5) stitchwidth = 5;
+      //console.log(delta);
       $(".sliderBall").css("margin-left", stitchwidth+"px");
-      console.log('slider dragging');
-    });
-  }).mouseup(function () {
-    var wasDragging = sliderDragging;
-    sliderDragging = false;
-    $(window).unbind("mousemove");
-    if (!wasDragging) { //was clicking
-      console.log('slider just a click');
+      $("#stipat").css("background-size", stitchwidth + "px");
+      console.log('slider dragging'); 
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.lineWidth = stitchwidth / 4;
+      $(".sliderText").html("cross size: "+stitchwidth+" px")
+      drawCrosses();
     }
+  });
+  $(window).mouseup(function () {
+    console.log("slider un-click");
+    sliding = false;
   });
 
 
@@ -84,12 +94,8 @@ window.onload = function () {
   });
 
   $("#saveButton").click(function () {
-    // var myImage = canvas.toDataURL();
-    // //document.getElementById('canvasImg').src = dataURL;
-    // var imageElement = document.getElementById("stipat");
-    // imageElement.src = myImage;
     canvas.toBlob(function (blob) {
-      saveAs(blob, "pretty image.png");
+      saveAs(blob, "CrossStitchJS.png");
     });
   });
 
