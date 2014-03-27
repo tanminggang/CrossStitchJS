@@ -61,27 +61,32 @@ window.onload = function () {
   });
   $('#sizeSlider').mousemove(function (evt){
     if (sliding){
-      console.log("sliding");
-      //var set_perc = ((((event.clientX - bar.offsetLeft) / bar.offsetWidth)).toFixed(2));
-      //$("elementA").offset().top - $("elementB").offset().top;
-      //console.log("client: " + evt.clientX);
+      //console.log("sliding");
       delta = evt.clientX - 6 - $('#sizeSlider').offset().left;
-      stitchwidth = (delta < 148) ? delta : 148;
-      if (stitchwidth < 5) stitchwidth = 5;
-      //console.log(delta);
-      $(".sliderBall").css("margin-left", stitchwidth+"px");
-      $("#stipat").css("background-size", stitchwidth + "px");
-      console.log('slider dragging'); 
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      context.lineWidth = stitchwidth / 4;
-      $(".sliderText").html("cross size: "+stitchwidth+" px")
-      drawCrosses();
+      setStitchSize(delta);
     }
   });
   $(window).mouseup(function () {
     console.log("slider un-click");
     sliding = false;
   });
+
+  $(".slider").click(function(evt){
+    setStitchSize(evt.clientX - $(this).offset().left);
+  })
+
+  function setStitchSize(delta){
+    delta = (delta < 135) ? delta : 135;
+    delta = (delta <= 0) ? 0 : delta;
+    stitchwidth = Math.floor((delta/3)+5);
+    $(".sliderBall").css("margin-left", delta +"px");
+    $("#stipat").css("background-size", stitchwidth + "px");
+    //console.log('slider dragging'); 
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.lineWidth = stitchwidth / 4;
+    $(".sliderText").html("cross size: "+stitchwidth+" px")
+    drawCrosses();
+  }
 
 
   $(window).bind("resize", function () {
