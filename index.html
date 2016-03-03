@@ -1,15 +1,32 @@
 <html>
 <head>
 	<title>CrossStitchJS</title>
+  <link rel="stylesheet" href="cornerinfo/cornerstyle.css">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/style.css">
 	<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+  <meta charset="utf-8">
 </head>
 
 <body>
 	<canvas id="stipat" resize></canvas>
   <div id="controls">
+    <div id="HSVColorPicker" class="control">
+      <p>Farbe</p>
+      <div class="hue">
+        <div class="vSlider hueSlider"></div>
+        <div class="vSliderControl"></div>
+      </div>
+      <div class="satturation">
+        <div class="vSlider"></div>
+        <div class="vSliderControl"></div>
+      </div>
+      <div class="value">
+        <div class="vSlider"></div>
+        <div class="vSliderControl"></div>
+      </div>
+    </div>
     <div id="saveButton" class="control button">save image</div>
     <div id="sizeSlider" class="control">
       <p class="sliderText"></p>
@@ -25,5 +42,5 @@
 <script type="text/javascript" src="js/init.js"></script>
 <script type="text/javascript" src="js/helper.js"></script>
 <script type="text/javascript" src="js/stipat.js"></script>
-
+<script src="cornerinfo/cornerinfo.js"></script>
 </html>
